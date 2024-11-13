@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raydex Scheduler</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #4caf50;
+        --secondary-color: #ffffff;
+        --text-color: #333333;
+        --background-color: #f5f5f5;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .navbar {
+        background-color: var(--secondary-color);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        height: 40px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .explore-btn {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .explore-btn:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      main {
+        max-width: 800px;
+        margin: 80px auto 0;
+        padding: 2rem;
+        background-color: var(--secondary-color);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--primary-color);
+        outline: none;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .schedule {
+        margin-top: 2rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .schedule-header {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 0.5rem;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .schedule-body {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .schedule-cell {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .schedule-cell:hover {
+        transform: scale(1.05);
+        z-index: 1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .schedule-time {
+        font-weight: bold;
+      }
+
+      .color-picker {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .color-option:hover {
+        transform: scale(1.2);
+      }
+
+      .color-option.selected {
+        border: 2px solid #000;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="/api/placeholder/120/40" alt="Raydex Logo" class="logo" />
+      <a href="https://raydexhub.com" class="explore-btn" target="_blank"
+        >Explore More Tools</a
+      >
+    </nav>
+
+    <main>
+      <h1><i class="fas fa-calendar-alt"></i> Raydex Scheduler</h1>
+      <div id="app">
+        <!-- Vue.js app will be mounted here -->
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Raydex Scheduler. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

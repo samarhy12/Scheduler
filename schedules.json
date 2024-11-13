@@ -1,0 +1,14 @@
+{
+  "20241012185309": {
+    "name": "My Schedule",
+    "tasks": [
+      {
+        "name": "okay",
+        "day": "Monday",
+        "startTime": "01:00",
+        "endTime": "02:00",
+        "color": "#2196F3"
+      }
+    ]
+  }
+}
